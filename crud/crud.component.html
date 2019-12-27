@@ -1,0 +1,43 @@
+<h1> Crud Application </h1>
+<hr>
+
+<!-- CRUD FORM -->
+<table>
+
+    <tr> 
+        <td> <input type="text" placeholder="Enter Name" [(ngModel)]="stud.name"> </td>
+        <td> <input type="text" placeholder="Enter Email" [(ngModel)]="stud.email"> </td>
+        <td> <input type="text" placeholder="Enter Mobile" [(ngModel)]="stud.mobile"> </td>
+        <td> <input type="text" placeholder="Enter City" [(ngModel)]="stud.city">  </td>
+        <td> <button (click)="addStudent()"> ADD </button>
+            <button (click)="updateStudent()"> UPDATE </button> 
+        </td>
+    </tr>
+
+</table>
+<hr>
+
+<!-- CRUD TABLE -->
+<table width="100%" border='1'>
+
+    <tr>
+        <td> Sr. </td>
+        <td> Name </td>
+        <td> Email </td>
+        <td> Mobile </td>
+        <td> City </td>
+        <td> Action </td>
+    </tr>
+    
+    <tr *ngFor="let stud of students; let i = index">
+        <td> {{i+1}} </td>
+        <td> {{stud.name}} </td>
+        <td> {{stud.email}} </td>
+        <td> {{stud.mobile}} </td>
+        <td> {{stud.city}} </td>
+        <td> 
+            <a href="#" (click)="editStudent(i, stud)">Edit</a> | 
+            <a href="#" (click)="deleteStudent(i)">Delete</a> 
+        </td>
+    </tr>
+</table>
